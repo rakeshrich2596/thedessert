@@ -1,0 +1,641 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* =================================
+   GLOBAL STYLES
+================================= */
+
+:root {
+  font-family: "Poppins", Arial, sans-serif;
+  color: #54200f;
+  background: #fff4e8;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 110px;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  background: #fff4e8;
+  overflow-x: hidden;
+}
+
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+::selection {
+  background: #e8bd91;
+  color: #54200f;
+}
+
+/* =================================
+   NAVBAR
+================================= */
+
+.nav-link {
+  position: relative;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #54200f;
+  transition: color 0.2s ease;
+}
+
+.nav-link:hover {
+  color: #b86b35;
+}
+
+.nav-link::after {
+  position: absolute;
+  bottom: -7px;
+  left: 0;
+  height: 2px;
+  width: 0;
+  border-radius: 999px;
+  background: #b86b35;
+  content: "";
+  transition: width 0.25s ease;
+}
+
+.nav-link:hover::after {
+  width: 100%;
+}
+
+/* Navbar logo stays inside navbar */
+
+.navbar-logo {
+  width: 78px;
+  height: 78px;
+  object-fit: contain;
+  display: block;
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+  transform: none;
+  filter: none;
+}
+
+/* =================================
+   SECTION TITLES
+================================= */
+
+.section-title {
+  font-family: Georgia, serif;
+  font-size: clamp(2.4rem, 5vw, 4rem);
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.04em;
+}
+
+/* =================================
+   FORM STYLES
+================================= */
+
+.form-label {
+  display: block;
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+.form-label > span {
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.form-label input,
+.form-label textarea {
+  display: block;
+  width: 100%;
+  border: 1px solid rgba(184, 107, 53, 0.48);
+  border-radius: 14px;
+  background: white;
+  padding: 0.85rem 1rem;
+  color: #54200f;
+  outline: none;
+  transition: border 0.2s, box-shadow 0.2s;
+}
+
+.form-label input:focus,
+.form-label textarea:focus {
+  border-color: #713018;
+  box-shadow: 0 0 0 3px rgba(184, 107, 53, 0.12);
+}
+
+.form-label input::placeholder,
+.form-label textarea::placeholder {
+  color: rgba(84, 32, 15, 0.45);
+  font-weight: 400;
+}
+
+/* =================================
+   HERO SECTION BACKGROUND
+================================= */
+
+.dessert-hero {
+  position: relative;
+  width: 100%;
+  min-height: 700px;
+  background:
+    radial-gradient(
+      ellipse at 78% 40%,
+      rgba(202, 139, 91, 0.18),
+      transparent 40%
+    ),
+    radial-gradient(
+      ellipse at 12% 25%,
+      rgba(255, 255, 255, 0.95),
+      transparent 38%
+    ),
+    linear-gradient(
+      120deg,
+      #fff7ef 0%,
+      #fce9d9 50%,
+      #fff3e7 100%
+    );
+}
+
+/* =================================
+   ANIMATED BACKGROUND GLOW
+================================= */
+
+.hero-bg-blur {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(85px);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.hero-bg-blur-one {
+  width: 300px;
+  height: 300px;
+  top: 12%;
+  left: 12%;
+  background: rgba(196, 109, 58, 0.14);
+  animation: dessertGlow 9s ease-in-out infinite alternate;
+}
+
+.hero-bg-blur-two {
+  width: 350px;
+  height: 350px;
+  right: 8%;
+  bottom: 8%;
+  background: rgba(133, 62, 29, 0.12);
+  animation: dessertGlow 12s ease-in-out infinite alternate-reverse;
+}
+
+@keyframes dessertGlow {
+  from {
+    transform: translate(0, 0) scale(1);
+  }
+
+  to {
+    transform: translate(-25px, -20px) scale(1.15);
+  }
+}
+
+/* =================================
+   BROWNIE DECORATIVE SHAPE
+================================= */
+
+.hero-brown-shape {
+  position: absolute;
+  z-index: 0;
+  top: 6%;
+  left: 12%;
+  width: 70%;
+  height: 86%;
+  border-radius: 42% 45% 35% 40%;
+  background: linear-gradient(
+    145deg,
+    #6e301b,
+    #9a502c,
+    #c18a57
+  );
+  transform: rotate(-7deg);
+  box-shadow: 0 20px 45px rgba(88, 40, 19, 0.15);
+}
+
+.hero-brownie-image {
+  aspect-ratio: 0.92;
+  border-radius: 40% 40% 32% 32%;
+  object-fit: cover;
+  filter: drop-shadow(0 18px 22px rgba(70, 32, 15, 0.16));
+}
+
+/* =================================
+   FLOATING PRODUCT CARDS
+================================= */
+
+.product-card-one {
+  top: 2%;
+  right: 2%;
+}
+
+.product-card-two {
+  top: 35%;
+  right: -2%;
+}
+
+.product-card-three {
+  top: 68%;
+  right: 2%;
+}
+
+/* =================================
+   CHOCOLATE DECORATIONS
+================================= */
+
+.hero-chocolate-piece {
+  position: absolute;
+  z-index: 1;
+  width: 23px;
+  height: 32px;
+  border-radius: 50% 50% 45% 45%;
+  background: linear-gradient(
+    135deg,
+    #9b5935,
+    #4b1e10
+  );
+  box-shadow: 0 6px 12px rgba(73, 30, 14, 0.18);
+  pointer-events: none;
+}
+
+.chocolate-piece-one {
+  top: 25%;
+  left: 48%;
+}
+
+.chocolate-piece-two {
+  right: 8%;
+  bottom: 25%;
+  transform: scale(0.7);
+}
+
+/* =================================
+   LEAF DECORATION
+================================= */
+
+.hero-leaf-decoration {
+  position: absolute;
+  top: -100px;
+  right: -90px;
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+  background: radial-gradient(
+    ellipse,
+    rgba(94, 111, 42, 0.16),
+    transparent 68%
+  );
+  filter: blur(15px);
+  pointer-events: none;
+}
+
+/* =================================
+   TABLET RESPONSIVE
+================================= */
+
+@media (max-width: 1023px) {
+  .dessert-hero {
+    min-height: auto;
+  }
+
+  .hero-brown-shape {
+    left: 12%;
+    width: 72%;
+  }
+}
+
+/* =================================
+   MOBILE RESPONSIVE
+================================= */
+
+@media (max-width: 640px) {
+  .navbar-logo {
+    width: 66px;
+    height: 66px;
+  }
+
+  .dessert-hero {
+    min-height: auto;
+    background:
+      radial-gradient(
+        ellipse at 50% 65%,
+        rgba(207, 143, 94, 0.17),
+        transparent 60%
+      ),
+      linear-gradient(
+        135deg,
+        #fff7ef,
+        #fce9d9
+      );
+  }
+
+  .hero-bg-blur-one {
+    width: 180px;
+    height: 180px;
+    left: -70px;
+  }
+
+  .hero-bg-blur-two {
+    width: 220px;
+    height: 220px;
+    right: -90px;
+  }
+
+  .hero-brown-shape {
+    left: 12%;
+    width: 74%;
+    height: 85%;
+  }
+
+  .hero-chocolate-piece {
+    width: 16px;
+    height: 23px;
+  }
+
+  .product-card-one {
+    top: 1%;
+    right: 0;
+  }
+
+  .product-card-two {
+    top: 35%;
+    right: -2%;
+  }
+
+  .product-card-three {
+    top: 69%;
+    right: 0;
+  }
+
+  .hero-leaf-decoration {
+    width: 160px;
+    height: 160px;
+  }
+}
+
+/* =================================
+   ACCESSIBILITY - REDUCED MOTION
+================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+
+/* =================================
+   WHY CHOOSE US SECTION
+================================= */
+
+.why-section {
+  position: relative;
+  background:
+    radial-gradient(
+      ellipse at 50% 45%,
+      rgba(255, 255, 255, 0.85) 0%,
+      transparent 65%
+    ),
+    linear-gradient(
+      135deg,
+      #fff2e6 0%,
+      #ffead9 48%,
+      #fff4e9 100%
+    );
+}
+
+/* Background Glow */
+
+.why-glow {
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  filter: blur(90px);
+  pointer-events: none;
+}
+
+.why-glow-one {
+  top: 20%;
+  left: 15%;
+  background: rgba(220, 151, 91, 0.15);
+}
+
+.why-glow-two {
+  right: 10%;
+  bottom: 5%;
+  background: rgba(157, 79, 37, 0.12);
+}
+
+/* Chocolate Dripping Decoration */
+
+.chocolate-drip {
+  position: absolute;
+  top: -5px;
+  left: -15px;
+  width: 290px;
+  height: 150px;
+  pointer-events: none;
+  z-index: 1;
+
+  background:
+    radial-gradient(ellipse at 15% 0%, #59230f 0 35%, transparent 36%),
+    radial-gradient(ellipse at 45% 0%, #713015 0 42%, transparent 43%),
+    radial-gradient(ellipse at 75% 0%, #59230f 0 35%, transparent 36%);
+
+  filter: drop-shadow(0 8px 8px rgba(75, 30, 10, 0.15));
+  clip-path: polygon(
+    0 0,
+    100% 0,
+    100% 15%,
+    87% 20%,
+    80% 55%,
+    73% 60%,
+    67% 20%,
+    52% 28%,
+    45% 70%,
+    38% 75%,
+    31% 25%,
+    18% 30%,
+    13% 95%,
+    5% 100%,
+    0 55%
+  );
+}
+
+/* Waffle Decoration */
+
+.waffle-decoration {
+  position: absolute;
+  top: 35px;
+  right: 9%;
+  width: 130px;
+  height: 100px;
+  border: 5px solid rgba(198, 125, 67, 0.2);
+  border-radius: 35%;
+  transform: rotate(20deg);
+  display: grid;
+  place-items: center;
+  color: rgba(165, 91, 44, 0.25);
+  font-size: 85px;
+  pointer-events: none;
+}
+
+/* Food Decorations */
+
+.why-food {
+  position: absolute;
+  z-index: 1;
+  width: 190px;
+  height: 230px;
+  object-fit: cover;
+  pointer-events: none;
+  filter: drop-shadow(0 12px 15px rgba(79, 35, 15, 0.2));
+}
+
+.brownie-decoration {
+  left: -65px;
+  bottom: 0;
+  border-radius: 30px 30px 0 0;
+  mask-image: linear-gradient(
+    to right,
+    black 65%,
+    transparent 100%
+  );
+}
+
+.jar-decoration {
+  right: -65px;
+  bottom: 0;
+  border-radius: 35px 0 0 0;
+  mask-image: linear-gradient(
+    to left,
+    black 65%,
+    transparent 100%
+  );
+}
+
+/* Feature Cards */
+
+.why-card {
+  border: 2px solid rgba(255, 255, 255, 0.9);
+
+  background: linear-gradient(
+    145deg,
+    rgba(255, 249, 241, 0.95),
+    rgba(255, 235, 215, 0.88)
+  );
+
+  box-shadow:
+    0 12px 22px rgba(112, 58, 27, 0.10),
+    inset 0 0 0 2px rgba(218, 158, 108, 0.12);
+
+  transition:
+    box-shadow 0.35s ease,
+    background 0.35s ease;
+}
+
+.why-card:hover {
+  box-shadow:
+    0 22px 35px rgba(112, 58, 27, 0.17),
+    inset 0 0 0 2px rgba(218, 158, 108, 0.2);
+
+  background: linear-gradient(
+    145deg,
+    #fffaf3,
+    #ffead5
+  );
+}
+
+/* Icon Decorative Badge */
+
+.why-icon-badge {
+  background: linear-gradient(
+    145deg,
+    #ffe8d2,
+    #f7d5b7
+  );
+
+  border: 4px solid rgba(255, 255, 255, 0.75);
+
+  box-shadow:
+    0 8px 16px rgba(108, 54, 23, 0.12),
+    inset 0 2px 8px rgba(255, 255, 255, 0.7);
+}
+
+/* Bottom Decoration */
+
+.why-bottom-wave {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 65px;
+
+  background:
+    radial-gradient(
+      ellipse at 10% 100%,
+      rgba(135, 62, 25, 0.15),
+      transparent 60%
+    ),
+    linear-gradient(
+      to top,
+      rgba(235, 186, 143, 0.16),
+      transparent
+    );
+
+  pointer-events: none;
+}
+
+/* Responsive */
+
+@media (max-width: 640px) {
+  .why-section .why-food {
+    width: 100px;
+    height: 140px;
+    opacity: 0.5;
+  }
+
+  .brownie-decoration {
+    left: -55px;
+  }
+
+  .jar-decoration {
+    right: -55px;
+  }
+
+  .chocolate-drip {
+    width: 150px;
+    height: 85px;
+  }
+
+  .waffle-decoration {
+    width: 75px;
+    height: 65px;
+    font-size: 45px;
+    right: 4%;
+  }
+}
+
