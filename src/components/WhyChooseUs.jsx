@@ -8,7 +8,7 @@ import {
   Heart,
 } from "lucide-react";
 
-import whyBackground from "../assets/why_background.png";
+import whyBackground from "../assets/why.png";
 
 const features = [
   {
