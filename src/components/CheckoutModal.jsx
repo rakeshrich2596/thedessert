@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import { X, MessageCircle, MapPin, User, Phone } from "lucide-react";
 import { useCart } from "../context/CartContext";
 
-const SHOP_WHATSAPP = "919384220156";
+const SHOP_WHATSAPP = "919361553904";
 
 export default function CheckoutModal({ onClose }) {
   const { cart, subtotal } = useCart();
